@@ -1,0 +1,27 @@
+//
+//  Post.swift
+//  Wired
+
+
+import Foundation
+import Firebase
+import FirebaseFirestoreSwift
+
+
+struct Post: Identifiable, Codable, Hashable {
+    
+    @DocumentID var postID: String?
+    
+    var  id: String {
+        return postID ?? UUID().uuidString
+    }
+    
+    let userId: String
+    let caption: String
+    let timestamp: Timestamp
+    var likes: Int
+    var replies: Int
+    var didLike: Bool? = false
+    var user: User?
+    var imageURL: String?
+}
